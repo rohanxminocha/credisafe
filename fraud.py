@@ -30,13 +30,10 @@ train_features, test_features, train_labels, test_labels = train_test_split(full
 train_features = normalize(train_features)
 test_features = normalize(test_features)
 
-
-# k_means_classification:
-#                --> k_means_clustering, confsion_matrix, reassigning
+# k_means_classification --> k_means_clustering, confsion_matrix, reassigning
 kmeans = KMeans(n_clusters = 2, random_state = 0, algorithm = "elkan", max_iter = 10000, n_jobs = -1)
 kmeans.fit(train_features)
 kmeans_predicted_train_labels = kmeans.predict(train_features)
-
 
 # confusion matrix
 # tn fp
@@ -47,7 +44,6 @@ print("fn --> false negatives")
 print("tp --> true positives")
 
 tn, fp, fn, tp = confusion_matrix(train_labels, kmeans_predicted_train_labels).ravel()
-
 reassignflag = False
 
 if tn + tp < fn + fp:
