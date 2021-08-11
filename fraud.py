@@ -25,7 +25,7 @@ full_labels = pd.DataFrame(full_data[["Class"]])
 full_features_array = full_features.values
 full_labels_array = full_labels.values
 
-# Normalizing the data
+# Normalizing Data
 train_features, test_features, train_labels, test_labels = train_test_split(full_features_array, full_labels_array, train_size = 0.90)
 train_features = normalize(train_features)
 test_features = normalize(test_features)
@@ -35,7 +35,7 @@ kmeans = KMeans(n_clusters = 2, random_state = 0, algorithm = "elkan", max_iter 
 kmeans.fit(train_features)
 kmeans_predicted_train_labels = kmeans.predict(train_features)
 
-# confusion matrix
+# Confusion Matrix
 # tn fp
 # fn tp
 print("tn --> true negatives")
@@ -47,22 +47,22 @@ tn, fp, fn, tp = confusion_matrix(train_labels, kmeans_predicted_train_labels).r
 reassignflag = False
 
 if tn + tp < fn + fp:
-	# clustering is opposite of original classification
+	# Clustering is opposite of Original Classification
 	reassignflag = True
 kmeans_predicted_test_labels = kmeans.predict(test_features)
 if reassignflag:
 	kmeans_predicted_test_labels = 1 - kmeans_predicted_test_labels
 
-# calculating confusion matrix for kmeans
+# Calculating Confusion Matrix for kmeans
 tn, fp, fn, tp = confusion_matrix(test_labels, kmeans_predicted_test_labels).ravel()
 
-# scoring kmeans
+# Scoring kmeans
 kmeans_accuracy_score = accuracy_score(test_labels,kmeans_predicted_test_labels)
 kmeans_precison_score = precision_score(test_labels,kmeans_predicted_test_labels)
 kmeans_recall_score = recall_score(test_labels,kmeans_predicted_test_labels)
 kmeans_f1_score = f1_score(test_labels,kmeans_predicted_test_labels)
 
-# printing
+# Printing
 print("\nK-Means")
 print("Confusion Matrix")
 print("tn =", tn, "fp =",fp)
@@ -78,16 +78,16 @@ knn = KNeighborsClassifier(n_neighbors = 5, algorithm = "kd_tree", n_jobs = -1)
 knn.fit(train_features, train_labels.ravel())
 knn_predicted_test_labels = knn.predict(test_features)
 
-# calculating confusion matrix for knn
+# Calculating Confusion Matrix for knn
 tn, fp, fn, tp = confusion_matrix(test_labels, knn_predicted_test_labels).ravel()
 
-# scoring knn
+# Scoring knn
 knn_accuracy_score = accuracy_score(test_labels, knn_predicted_test_labels)
 knn_precison_score = precision_score(test_labels, knn_predicted_test_labels)
 knn_recall_score = recall_score(test_labels, knn_predicted_test_labels)
 knn_f1_score = f1_score(test_labels, knn_predicted_test_labels)
 
-# printing
+# Printing
 print("\nK-Nearest Neighbours")
 print("Confusion Matrix")
 print("tn =", tn, "fp =", fp)
@@ -113,7 +113,7 @@ plt.xlabel('False Positive Rate')
 plt.title('ROC Curve of kNN')
 plt.show()
 
-#time elapsed
+# Time Elapsed
 toc = time.time()
 elapsedtime = toc - tic
 print("\nTime Taken : "+str(elapsedtime)+"seconds")
