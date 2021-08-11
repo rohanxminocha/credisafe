@@ -17,7 +17,7 @@ import time
 
 tic = time.time()
 full_data = pd.read_csv("creditcard.csv")
-# full_data = full_data.sample(frac = 1)       #randomize the whole dataset
+# full_data = full_data.sample(frac = 1)       	randomize the whole dataset
 full_features = full_data.drop(["Time","Class"], axis = 1)
 
 full_labels = pd.DataFrame(full_data[["Class"]])
