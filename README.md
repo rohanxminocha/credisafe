@@ -14,8 +14,7 @@ As the name suggests this repository is an classifies credit card transactions a
 ## A few important aspects of the code:
 
 ### Data Cleaning
-The Data Cleaning part of the system requires finding the attributes that need to be handled based on the data visualization task.
-Functions should be developed as part of the data cleaning pipeline, and the dataset should be ready for further analysis.
+The Data Cleaning part of the system requires finding the attributes that need to be handled based on the data visualization task. It helps to ensure that the data is correct, consistent and usable. Functions should be developed as part of the data cleaning pipeline, and the dataset should be ready for further analysis.
 
 ### Data Visualization
 The Data Visualization aspect of the data analysis needs to visualize the dataset and understand the distribution of the dataset.
