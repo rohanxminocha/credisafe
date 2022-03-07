@@ -18,7 +18,7 @@ The Data Cleaning part of the system requires finding the attributes that need t
 Functions should be developed as part of the data cleaning pipeline, and the dataset should be ready for further analysis.
 
 ### Data Visualization
-The Data Visualization aspect of the data analysis needs to visualize the dataset without cleaning the data and understand the distribution of the dataset.
+The Data Visualization aspect of the data analysis needs to visualize the dataset and understand the distribution of the dataset.
 
 ### Confusion Matrix
 The code also makes use of a confusion matrix to describe the performance of the classification model on a the data from creditcard.csv for which the true values are known.
