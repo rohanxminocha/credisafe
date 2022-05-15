@@ -1,4 +1,4 @@
-# Credit Card Fraud Detection System
+# CrediSafe
 A Credit Card Fraud Detection System written in Python using Machine Learing by implementing KNN and K-means.
 
 # Introduction
